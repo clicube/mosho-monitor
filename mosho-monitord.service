@@ -1,0 +1,16 @@
+[Unit]
+Description=mosho monitor service
+After=syslog.target network.target
+
+[Service]
+Type=simple
+Environment="PATH=/home/pi/services/mosho-boardctl/bin"
+ExecStart=/home/pi/services/mosho-monitord/bin/mosho-monitord
+WorkingDirectory=/home/pi/services/mosho-monitord/bin
+KillMode=process
+Restart=always
+User=pi
+Group=pi
+
+[Install]
+WantedBy=multi-user.target
